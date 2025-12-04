@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Message Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Discord Message Generator</h1>
+
+        <div class="input-group api-group">
+            <input type="password" id="apiKeyInput" placeholder="YouTube Data API Keyを入力してください">
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="urlInput" placeholder="YouTube URLを入力してください">
+            <button id="generateBtn">取得する</button>
+        </div>
+
+        <div id="resultArea" class="hidden">
+            <div class="thumbnail-container">
+                <img id="thumbnailImg" src="" alt="Thumbnail">
+                <button id="saveThumbnailBtn" class="secondary-btn">サムネイルを保存</button>
+            </div>
+
+            <div class="message-container">
+                <label for="messageOutput">Discord用メッセージ</label>
+                <div class="color-picker">
+                    <div class="color-option blue selected" data-color="blue" title="Blue (Python)"></div>
+                    <div class="color-option red" data-color="red" title="Red (Diff -)"></div>
+                    <div class="color-option green" data-color="green" title="Green (Diff +)"></div>
+                    <div class="color-option yellow" data-color="yellow" title="Yellow (Fix)"></div>
+                </div>
+                <textarea id="messageOutput" readonly></textarea>
+                <button id="copyBtn">コピー</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
